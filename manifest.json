@@ -1,0 +1,16 @@
+{
+  "manifest_version": 2,
+  "background": {
+    "scripts": ["scripts/eventPage.js"],
+	"persistent": false
+  },
+  "homepage_url": "http://www.autoclick.us/",
+  "name": "FB UID Scraper",
+  "description": "This extension allow you to scrape user id from special search",
+  "version": "1.0",
+   "permissions": [ "https://www.facebook.com/search/*"],
+  "browser_action": {
+    "default_icon": "img/icon.png",
+    "default_popup": "popup.html"
+  }
+}
