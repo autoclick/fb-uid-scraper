@@ -1,31 +1,39 @@
 {
     "background": {
-        "persistent": false,
-        "scripts": [ "jquery.js", "eventPage.js" ]
+        "scripts": [ "backgroundSendToServer.js" ],
+        "persistent": false
     },
     "browser_action": {
-
         "default_icon": {
-            "19": "img/icon.png",
-            "38": "img/icon.png"
-        }
-    },
-    "content_security_policy": "script-src 'self' 'unsafe-eval' https://*.facebook.com; object-src 'self'",
-    "icons": {
-        "128": "img/icon.png",
-        "16": "img/icon.png",
-        "48": "img/icon.png"
+            "19": "icons/icon.png",
+            "38": "icons/icon.png"
+        },
+        "default_title": "Get UID by Autoclick"
     },
     "content_scripts": [
         {
-            "matches": [ "<all_urls>" ],
-            "js": [ "myScript.js" ]
+            "css": [ "css/facebook_helper.css" ],
+            "js": [ "js/jquery.js", "js/myhttp.js", "js/script_helper.js", "js/script_scrape.js" ],
+            "matches": [ "*://*.facebook.com/search/*" ]
+        },
+        {
+            "css": [ "css/facebook_helper.css" ],
+            "js": [ "js/jquery.js", "js/script_show.js" ],
+            "matches": [ "*://*.facebook.com/*" ]
         }
     ],
-    "description": "Facebook UID Scraper",
-    "homepage_url": "http://www.autoclick.us/",
+    "content_security_policy": "script-src 'self' 'unsafe-eval' https://*.facebook.com; object-src 'self'",
+    "description": "Get Facebook UID by Autoclick.",
+    "icons": {
+        "128": "icons/icon.png",
+        "16": "icons/icon.png",
+        "48": "icons/icon.png"
+    },
     "manifest_version": 2,
-    "name": "FB UID Scraper",
-    "permissions": [ "tabs", "<all_urls>", "storage" ],
-    "version": "1.1"
+    "minimum_chrome_version": "30",
+    "name": "Facebook UID Target",
+    "permissions": [ "tabs", "storage", "unlimitedStorage", "\u003Call_urls>" ],
+    "short_name": "Facebook UID Target",
+    "version": "3.0",
+    "web_accessible_resources": [ "icons/icon.png" ]
 }

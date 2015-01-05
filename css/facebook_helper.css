@@ -1,0 +1,78 @@
+/* Prospector Box */
+
+#prospector-box {
+  position: fixed;
+  width: 350px;
+  top: 80px;
+  right: 0;
+  padding: 10px;
+  background-color: white;
+  border: 1px solid #aaa;
+  border-right: none;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+  z-index: 100000;
+  box-sizing: border-box;
+}
+
+#prospector-box .salesloft-logo {
+  display: block;
+  height: 135px;
+  width: 128px;
+  background-size: 128px 128px;
+  background-repeat:no-repeat;
+  font-size: 0;
+  line-height: 0;
+  color: transparent;
+}
+
+#prospector-box #hide-prospector-box {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 13px;
+}
+
+
+
+#prospector-box .prospector-list {
+  margin: 10px 0 0;
+  font-size: 12px;
+  text-align: right;
+}
+
+/* Box Toggle Button */
+
+#prospector-box-toggle {
+  display: none;
+  position: fixed;
+  top: -1px;
+  right: 20px;
+  padding: 5px 10px;
+  background-color: white;
+  font-size: 14px;
+  border: 1px solid #666;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
+  z-index: 100000;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+}
+
+#prospector-box-toggle.show {
+  display: block;
+  opacity: 1;
+}
+
+#prospector-box-toggle a {
+  color: #08c;
+  font-weight: normal;
+}
+
+#prospector-box-toggle a:hover {
+  text-decoration: none;
+}
+
+/* Company Page */
