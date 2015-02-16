@@ -92,7 +92,10 @@ function selectData(_html) {
             $(nodelist).each(function () {
                 var item = $(this).next();
                 profile_url = $(this).attr('href');
-                name = item.find('a div.clearfix>div').text();
+                name = item.find("div[data-bt='{\"ct\":\"title\"}'] a").text();
+                if (!name) {
+                    name = item.find("a div.clearfix>div").text();
+                }
                 uid = item.find("button[data-profileid]").attr('data-profileid');
                 if (!uid) {
                     var suid = $(this).parent().parent().attr('data-bt');
@@ -119,7 +122,9 @@ function selectData(_html) {
                     var work = snippets.find("div._52eh:contains('at')");//[contains(@class,'sp_1cnqys sx_4d6514')]
                     //Works at
                     if (work.length > 0) {
-                        Work = work.children().text();
+                        if (work.text().indexOf('Stud') < 0) {
+                            Work = work.children().text();
+                        }
                     }
                     var edu = snippets.find("div._52eh:contains('Stud')");//[contains(@class,'sp_1cnqys sx_6dc55d')]
                     //Studied at 

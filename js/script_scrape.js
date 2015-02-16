@@ -37,6 +37,31 @@ function SaveToLocal(_lstResult, _listId) {
 
 
 }
+function SaveToLocal(_lstResult, _listId) {
+
+
+    $('body').find('[download]').remove();
+    const MIME_TYPE = 'text/plain;charset=UTF-8';
+    var savedata = '"UID","Name","Sex","Profile","Location","Job","Company","Work","Education"\n';
+    for (var i = 0; i < _lstResult.length; i++) {
+        savedata += '"' + _lstResult[i].join('","') + '"\n';
+    }
+    var bb = new Blob([savedata], { type: MIME_TYPE });
+    var link = document.createElement("a");
+    link.textContent = "Save as csv";
+    link.download = "List_Facebook_Data_" + _listId + '.csv';
+    link.href = window.URL.createObjectURL(bb);
+
+    //window.open(link); //debug only
+
+    document.body.appendChild(link);
+
+    if ($('body').find('[download]').length != 0) {
+        link.click();
+    }
+
+
+}
 function reloadForm() {
     chrome.storage.local.get(_lists, function (data) {
         var lists_data = data[_lists];

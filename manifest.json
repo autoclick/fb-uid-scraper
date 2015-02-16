@@ -23,7 +23,8 @@
         }
     ],
     "content_security_policy": "script-src 'self' 'unsafe-eval' https://*.facebook.com; object-src 'self'",
-    "description": "Get Facebook UID by Autoclick.",
+    "description": "Fast Scraper UID from Facebook Graph Search",    
+    "homepage_url": "http://autoclick.us/projects",
     "icons": {
         "128": "icons/icon.png",
         "16": "icons/icon.png",
@@ -31,9 +32,9 @@
     },
     "manifest_version": 2,
     "minimum_chrome_version": "30",
-    "name": "Facebook UID Target",
+    "name": "ExtensionFB UID Scraper",
     "permissions": [ "tabs", "storage", "unlimitedStorage", "\u003Call_urls>" ],
-    "short_name": "Facebook UID Target",
-    "version": "3.0",
+    "short_name": "UIDScraper",
+    "version": "3.3",
     "web_accessible_resources": [ "icons/icon.png" ]
 }
