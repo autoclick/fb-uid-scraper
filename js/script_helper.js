@@ -45,7 +45,7 @@ function getData(link, onSuccess, onError) {
         success: function (d) {
             onSuccess(d);
         }, error: function (d) {
-            onError(d);
+            onError(link);
         }
     })
 }
@@ -71,8 +71,11 @@ function showNext_callback(htmlnext) {
         return;
     }
     var urlNextPage = cutNextUrl(htmlnext);
-    getData(urlNextPage, showNext_callback, function () {
-        Log("load next data error");
+    getData(urlNextPage, showNext_callback, function (_link) {
+        getData(_link, showNext_callback, function () {
+            console.log('error link: '+_link);
+            Log("load next data error");
+        });
     });
 
 

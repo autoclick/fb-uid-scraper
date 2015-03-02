@@ -1,0 +1,77 @@
+﻿<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Facebook Search</title>
+    <style>
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+
+        .mainform {
+            height: auto;
+            width: 360px;
+            padding: 10px;
+            margin: 0px auto 0px auto;
+            display: block;
+        }
+
+        a {
+            font-size: 12px;
+            color: #848484;
+        }
+
+        select {
+            height: auto;
+            width: 108px;
+            padding: 5px 5px 5px 5px;
+            margin: 2px 2px 2px 2px;
+            border-radius: 5px 5px 5px 5px;
+        }
+
+        input {
+            height: auto;
+            padding: 5px 5px 5px 5px;
+            margin: 2px 2px 2px 2px;
+            border-radius: 5px 5px 5px 5px;
+        }
+
+        button {
+            border-radius: 10px 10px 10px 10px;
+            height: 30px;
+            width: 200px;
+            background: #FF8000;
+        }
+    </style>
+</head>
+<body>
+    <span class="mainform">
+        <h3>Find People on Facebook whose</h3>
+        <div id="inputrows">
+            <div id="inputrow1">
+                <select id="Selector1">
+                    <option value="users-named">Name is</option>
+                    <option value="pages-named/employees/present">Current Job (Employer or Job Title)</option>
+                    <option value="pages-named/employees/past">Past Jobs (Employer or Job Title)</option>
+                    <option value="pages-named/employees/ever">All Jobs (Employer or Job Title)</option>
+                    <option value="pages-named/residents/present">Lives (Currently)</option>
+                    <option value="pages-named/residents/past">Lived (Previously)</option>
+                    <option value="pages-named/speakers">Speaks (Language)</option>
+                    <option value="pages-named/students">Education</option>
+                    <option value="pages-named/visitors">Visited</option>
+                    <option value="pages-named/likers">Liked</option>
+                </select>
+                <input type="text" id="item1">
+                <input type="submit" id="AndButton" value="AND" data-id="2">
+                <span id="andlable2"></span>
+            </div>
+
+        </div>
+        <br>
+        <button type="button" id="OpenFacebook">Search Facebook</button>
+        <br><br>
+        <a href="http://www.intel-sw.com" id="copyRight">This form designed by Intelligence Software</a>
+    </span>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/popup.js"></script>
+</body>
+</html>
