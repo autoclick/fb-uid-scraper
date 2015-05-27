@@ -3,11 +3,11 @@ fb-uid-scraper
 [01/05/2015] Big Update(switch to the background, No Crashes)
 [If you reviewed 1*(one star) because of old error, I'm sorry about that]
    But now all error fixed, Please edit review to 5*, It very nice
-Install: https://chrome.google.com/webstore/detail/fb-uid-scraper/mhfeilckipmpkmoblecjildbpgdjjpnj
+Install: https://chrome.google.com/webstore/detail/fb-uid-scraper/hflfdfjhemennkeeolpjdbdfbfonodbg/
 
 This extension allow you to scan full user info from Facebook Graph Search
 If you want scan only user id(UID). Please try other extension
-https://chrome.google.com/webstore/detail/facebook-uid-target/fdgibmdenlndaalhpejbbafklgfnlpjj
+https://chrome.google.com/webstore/detail/fb-uid-scraper/hflfdfjhemennkeeolpjdbdfbfonodbg/
 
 How to use this plugin in 2 easy steps!
 
