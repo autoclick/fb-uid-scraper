@@ -1,0 +1,9 @@
+---
+title: "ScreenshotFullPage.Js"
+date: "2023-11-23"
+categories: 
+  - "useful-script-en"
+---
+
+how to add bookmarklet in chrome  
+![](https://camo.githubusercontent.com/5f21e427a7d3ee887313a4f9b1ab033e6462db47ca299bf3f7e2d81a0ce854bd/68747470733a2f2f696d672e7765626e6f74732e636f6d2f323031392f30342f447261672d616e642d44726f702d4c696e6b732d696e2d4368726f6d652e706e67)`import { attachDebugger, detachDebugger, getCurrentTab, sendDevtoolCommand, showLoading,  } from "./helpers/utils.js";  export default { icon: "https://gofullpage.com/favicon.ico", name: { en: "Screenshot full webpage", vi: "Take a screenshot of the entire web", }, description: {  en: "Taking a screenshot of an entire webpage", vi: "Create screenshots of the entire website",  },  onClickExtension: async function() { const { downloadURL } = UsefulScriptGlobalPageContext.Utils;  const { setLoadingText, closeLoading } = showLoading( "Getting page size... " ); try { let tab = await getCurrentTab(); await attachDebugger(tab); let res = await sendDevtoolCommand(tab, "Page.getLayoutMetrics", {});  const { x, y, width, height } = res.cssContentSize;  setLoadingText("Creating screenshot..."); let img = await sendDevtoolCommand(tab, "Page.captureScreenshot", { format: "png", quality: 100, fromSurface: true, captureBeyondViewport: true, clip: { x: 0, y: 0, width, height, scale: 1 },  }); console.log(img); await detachDebugger(tab);  setLoadingText("Saving image..."); downloadURL("data:image/png; base64," + img.data, "fullpage.png"); } catch (e) { alert("Error: " + e); } closeLoading(); }, };  function backup() { // var blob = new Blob(img.data, { type: "image/png" }); // var url = URL.createObjectURL(blob); // chrome.downloads.download({ // url: url, // filename: "screenshot.png", // });  // window.open("data:image  /png; base64," +img.data); }`

@@ -1,0 +1,9 @@
+---
+title: "ShowTheImages.Js"
+date: "2023-11-23"
+categories: 
+  - "useful-script-en"
+---
+
+how to add bookmarklet in chrome  
+![](https://camo.githubusercontent.com/5f21e427a7d3ee887313a4f9b1ab033e6462db47ca299bf3f7e2d81a0ce854bd/68747470733a2f2f696d672e7765626e6f74732e636f6d2f323031392f30342f447261672d616e642d44726f702d4c696e6b732d696e2d4368726f6d652e706e67)``export default { icon: '', name: { en: "Show all images in new frame", vi: "Show all images in new frame", }, description: { en: "Will even show hidden images as well as pulling them out of a slider/rotator.",  en: "Will see hidden images, easy right-click to download",  },  onClick: function() { / / source code from https://bookmarklet.vercel.app/  var iGrabSH = ""; (function () { var L = [], i = 0, j, e, D = document, u, B = D.body, x = B.getElementsByTagName("*"), t,  f = "banner|seomonitor|pagerank|counter|sitemeter|alexa.com|logo|bayumukti|iklan/|multibet|tipsbola|referral".split( "|  " ), F = function (a) { for (j = 0; j < f.length; ) if (a.indexOf(f[j++]) > -1) return; return !0; };  for (; i < x.length; ) { t = (e = x[i++]).tagName.toLowerCase(); if ( t == "img" && e.src && (u = e.src) && F(u.toLowerCase()) && L.indexOf(u) < 0 && e.naturalWidth > 200 ) L.push(u); }  if (! L.length) { alert("No image found"); } else { let id = "useful-script-showTheImages"; let div = document.createElement("div");  div.id = id; div.style.zIndex = 9998; div.style.backgroundColor = "#000d"; div.style.position = "fixed"; div.style.top = "5px"; div.style.left = "5px"; div.style.right = "5px"; div.style.bottom = "5px";  div.style.overflow = "auto";  div.innerHTML = '  Found ${L.length} Image(s): ${L.map( (img) => ''![](https://naturelovers.15w.xyz/blog/showtheimages-js/'%20+%20img%20+%20') ).join("")} X  `;  B.appendChild(div); } })(); }, };``

@@ -1,0 +1,9 @@
+---
+title: "ScrollToVeryEnd.Js"
+date: "2023-11-23"
+categories: 
+  - "useful-script-en"
+---
+
+how to add bookmarklet in chrome  
+![](https://camo.githubusercontent.com/5f21e427a7d3ee887313a4f9b1ab033e6462db47ca299bf3f7e2d81a0ce854bd/68747470733a2f2f696d672e7765626e6f74732e636f6d2f323031392f30342f447261672d616e642d44726f702d4c696e6b732d696e2d4368726f6d652e706e67)`import { runScriptInCurrentTab, showLoading } from “./helpers/utils.js”;  export default { icon: ``, name: { en: “Scroll to very end”, vi: “Cuộn trang xuống cuối cùng”, }, description: { en: “Scoll to end, then wait for load data, then scroll again… Mouse click to cancel”, vi: “Cuộn tới khi nào không còn data load thêm nữa (trong 5s) thì thôi. Click chuột để huỷ.”, },  onClickExtension: async function () { const { closeLoading } = showLoading(“Đang scroll xuống cuối cùng…”); await runScriptInCurrentTab(shared.scrollToVeryEnd); closeLoading(); }, };  export const shared = { scrollToVeryEnd: function () { return new Promise(async (resolve, reject) => { let height = () => (document.scrollingElement || document.body).scrollHeight; let down = () => window.scrollTo({ left: 0, top: height() }); let sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));  let lastScroll = { time: Date.now(), top: 0, };  let running = true; let clickToCancel = () => { running = false; document.removeEventListener(“click”, clickToCancel); // alert(“scroll to very end STOPPED by user click”); }; document.addEventListener(“click”, clickToCancel);  while (running) { down(); let currentHeight = height(); if (currentHeight != lastScroll.top) { lastScroll.top = currentHeight; lastScroll.time = Date.now(); } else if (Date.now() – lastScroll.time > 5000) { running = false; // alert(“scroll to very end DONE”); } await sleep(100); }  resolve(); }); }, };`
